@@ -20,10 +20,36 @@
 
     <main class="conteudo-principal">
         <img src="assets/logotop.png" alt="logo da empresa" class="logo">
-        <h1>Agendamento de consultas</h1>
+        <h2>Agendar Consulta</h2>
+
+        <form id="formAgendamento">
+            <div>
+            <label for="especialidade">Especialidade:</label>
+            <select id="especialidade" required>
+                <option value="">Selecione...</option>
+                <option value="Eutanásia Aplicada">Eutanásia Aplicada</option>
+                <option value="Cardiologia Sem Pressa">Cardiologia Sem Pressa</option>
+                <option value="Anestesiologia Extrema & Sono Profundo">Anestesiologia Extrema & Sono Profundo</option>
+                <option value="Cirurgia Geral Definitiva">Cirurgia Geral Definitiva</option>
+                <option value="Neurologia do Esquecimento">Neurologia do Esquecimento</option>
+            </select>
+            </div>
+
+            <div>
+            <label for="data">Data:</label>
+            <input type="date" id="data" required>
+            </div>
+
+            <div>
+            <label for="horario">Horário:</label>
+            <input type="time" id="horario" required>
+            </div>
+
+            <button type="submit">Agendar</button>
+        </form>
+
+  <div id="resumo"></div>
         
-
-
 
 
     </main>
