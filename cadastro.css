@@ -1,5 +1,73 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+@import url("style.css");
+
+#formulario-cadastro {
+	width: min(100%, 620px);
+	margin: 0 auto 44px;
+}
+
+#formulario-cadastro input {
+	min-width: 0;
+}
+
+#formulario-cadastro button {
+	justify-self: start;
+	min-width: 150px;
+}
+
+#formulario-cadastro + h1 {
+	margin: 0 auto 20px;
+	padding-top: 28px;
+	border-top: 1px solid #e1edf3;
+	font-size: clamp(1.45rem, 3vw, 1.8rem);
+}
+
+main.conteudo-principal > table {
+	width: 100%;
+	margin-top: 20px;
+	overflow: hidden;
+	border: 1px solid var(--line);
+	border-collapse: separate;
+	border-spacing: 0;
+	border-radius: 6px;
+	background: var(--white);
+	text-align: left;
+}
+
+main.conteudo-principal th,
+main.conteudo-principal td {
+	padding: 12px 14px;
+	border: 0;
+	border-bottom: 1px solid #e1edf3;
+	overflow-wrap: anywhere;
+}
+
+main.conteudo-principal th {
+	background: var(--blue-900);
+	color: var(--white);
+	font-weight: 600;
+}
+
+main.conteudo-principal td {
+	color: var(--muted);
+}
+
+main.conteudo-principal tbody tr:nth-child(even) {
+	background: var(--blue-050);
+}
+
+main.conteudo-principal tbody tr:last-child td {
+	border-bottom: 0;
+}
+
+@media (max-width: 600px) {
+	main.conteudo-principal > table {
+		display: block;
+		overflow-x: auto;
+		white-space: nowrap;
+	}
+
+	main.conteudo-principal th,
+	main.conteudo-principal td {
+		padding: 10px 12px;
+	}
 }
