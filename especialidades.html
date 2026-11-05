@@ -20,13 +20,87 @@
 
     <main class="conteudo-principal">
         <img src="assets/logohospital.jpg" alt="logo da empresa" class="logo">
-        <h1>Especialidades</h1>
-        <br>
-        <p>
-            Especialidade:Eutanásia Aplicada - Cardiologia Sem Pressa - Anestesiologia Extrema & Sono Profundo - Cirurgia Geral Definitiva - Neurologia do Esquecimento
-        </p>
-
     </main>
+    <h1>Especialidades</h1>
+    
+    <form>
+  <div>
+    <!-- Campo para filtrar as especialidades -->
+    <label for="filtro-especialidade">Buscar Especialidade:</label>
+    <input 
+      type="text" 
+      id="filtro-especialidade" 
+      placeholder="Digite para filtrar..."
+    >
+  </div>
+
+  <br>
+
+  <div>
+    <label for="especialidade">Especialidade:</label>
+    <select id="especialidade" required>
+      <option value="">Selecione...</option>
+      <option value="Eutanásia Aplicada">Eutanásia Aplicada</option>
+      <option value="Cardiologia Sem Pressa">Cardiologia Sem Pressa</option>
+      <option value="Anestesiologia Extrema & Sono Profundo">Anestesiologia Extrema & Sono Profundo</option>
+      <option value="Cirurgia Geral Definitiva">Cirurgia Geral Definitiva</option>
+      <option value="Neurologia do Esquecimento">Neurologia do Esquecimento</option>
+    </select>
+  </div>
+
+  <!-- Container onde o texto descritivo vai aparecer -->
+  <div id="descricao-especialidade" style="margin-top: 15px; padding: 10px; border-left: 4px solid #007bff; background-color: #f8f9fa; display: none;">
+  </div>
+</form>
+
+<script>
+
+  const descricoes = {
+    "Eutanásia Aplicada": "Atuação especializada em medicina paliativa avançada e protocolos de transição. Foca no gerenciamento ético, humano e controlado do fim da vida, garantindo o alívio integral da dor e o suporte pleno à dignidade do paciente e de seus familiares.",
+    "Cardiologia Sem Pressa": "Abordagem cardiovascular preventiva e de longa duração, voltada para a otimização do ritmo cardíaco e preservação miocárdica. Utiliza diagnósticos de baixa intervenção e estratégias de desaceleração do estresse circulatório para promover a longevidade.",
+    "Anestesiologia Extrema & Sono Profundo": "Especialidade focada no controle avançado da dor, estase temporária e indução de estados profundos de sedação e hibernação. Indicada para procedimentos de altíssima complexidade e protocolos de suporte de vida prolongado.",
+    "Cirurgia Geral Definitiva": "Intervenção cirúrgica de alta precisão orientada à resolução conclusiva de patologias complexas e traumas. Prioriza técnicas de reconstrução e remoção anatômica sem a necessidade de reintervenções posteriores.",
+    "Neurologia do Esquecimento": "Campo dedicado ao mapeamento e à modulação do processamento cognitivo. Especializado no tratamento de traumas mentais, supressão seletiva de memórias patológicas e gerenciamento de declínios neurodegenerativos."
+  };
+
+  const selectEspecialidade = document.getElementById('especialidade');
+  const inputFiltro = document.getElementById('filtro-especialidade');
+  const divDescricao = document.getElementById('descricao-especialidade');
+
+  selectEspecialidade.addEventListener('change', function() {
+    const valorSelecionado = this.value;
+
+    if (valorSelecionado && descricoes[valorSelecionado]) {
+      divDescricao.textContent = descricoes[valorSelecionado];
+      divDescricao.style.display = 'block';
+    } else {
+      divDescricao.textContent = '';
+      divDescricao.style.display = 'none';
+    }
+  });
+
+  
+  inputFiltro.addEventListener('input', function() {
+    const termoBusca = this.value.toLowerCase();
+    const opcoes = selectEspecialidade.options;
+
+    for (let i = 0; i < opcoes.length; i++) {
+      const opcao = opcoes[i];
+      
+      // Não oculta a opção padrão "Selecione..."
+      if (opcao.value === "") continue;
+
+      const textoOpcao = opcao.textContent.toLowerCase();
+
+      // Se o texto incluir o termo digitado, exibe a opção; caso contrário, esconde
+      if (textoOpcao.includes(termoBusca)) {
+        opcao.style.display = "";
+      } else {
+        opcao.style.display = "none";
+      }
+    }
+  });
+</script>
 
 
     <script src="especialidades.js"></script>
